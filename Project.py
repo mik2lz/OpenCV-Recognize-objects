@@ -1,13 +1,13 @@
 import cv2
-img = cv2.imread('images/elephant.jpg')
+img = cv2.imread('elephant.jpg')
 
 classnames = []
-classfile = 'files/thing.names'                         #Folder Name
+classfile = 'thing.names'                         #Folder Name
 
 with open(classfile , 'rt') as f :                       # Read The rt File
     classnames = f.read().rstrip('\n').split('\n')       
-p = 'files/frozen_inference_graph.pb'                          # Algorithms
-v = 'files/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
+p = 'frozen_inference_graph.pb'                          # Algorithms
+v = 'ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
 
 
 net = cv2.dnn_DetectionModel(p,v)      # This code opens the file p, v and works on them. It compares the image and opens a rectangle.
